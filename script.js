@@ -28,7 +28,7 @@ function createQueryTask() {
     });
   }, 1000);
 
-  etTimeout(() => {
+  setTimeout(() => {
     console.log("Создание третьей макрозадачи: setTimeout 3");
 
     Promise.resolve().then(() => {
