@@ -16,4 +16,15 @@ function createQueryTask() {
       changeColor();
     });
   }, 1000);
+
+  setTimeout(() => {
+    console.log("Создание второй макрозадачи: setTimeout 2");
+    Promise.resolve().then(() => {
+      console.log("Микрозадача 1: обработка промиса внутри setTimeout 2");
+    });
+
+    Promise.resolve().then(() => {
+      console.log("Микрозадача 2: обработка промиса внутри setTimeout 2");
+    });
+  }, 1000);
 }
