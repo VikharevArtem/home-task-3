@@ -27,4 +27,26 @@ function createQueryTask() {
       console.log("Микрозадача 2: обработка промиса внутри setTimeout 2");
     });
   }, 1000);
+
+  etTimeout(() => {
+    console.log("Создание третьей макрозадачи: setTimeout 3");
+
+    Promise.resolve().then(() => {
+      console.log("Микрозадача 1: обработка промиса внутри setTimeout 3");
+    });
+
+    function changeContent() {
+      document.querySelector(
+        ".main-title"
+      ).textContent = `Задача на асинхронный код завершена`;
+      console.log(
+        "Рендер задача внутри третьей макрозадачи: Изменение Элемента DOM"
+      );
+    }
+    requestAnimationFrame(() => {
+      changeContent();
+    });
+  }, 1000);
 }
+
+createQueryTask();
